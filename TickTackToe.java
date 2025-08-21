@@ -37,40 +37,121 @@ public class TickTackToe {
         setSymbol();
     }
 
-    void checkForWinner(){
+    void checkForWinner(Integer boxToCapture, ArrayList<Integer> capturedBox) {
+        switch (boxToCapture) {
+            case 1:
+                if ((capturedBox.contains(2) && capturedBox.contains(3))
+                        || (capturedBox.contains(4) && capturedBox.contains(7))
+                        || (capturedBox.contains(5) && capturedBox.contains(9))
+                ) {
+                    winner = symbol;
+                }
+
+            case 2:
+                if ((capturedBox.contains(1) && capturedBox.contains(3))
+                        || (capturedBox.contains(5) && capturedBox.contains(8))
+                ) {
+                    winner = symbol;
+                }
+
+            case 3:
+                if ((capturedBox.contains(2) && capturedBox.contains(1))
+                        || (capturedBox.contains(6) && capturedBox.contains(9))
+                        || (capturedBox.contains(5) && capturedBox.contains(7))
+                ) {
+                    winner = symbol;
+                }
+
+            case 4:
+                if ((capturedBox.contains(5) && capturedBox.contains(6))
+                        || (capturedBox.contains(1) && capturedBox.contains(7))
+                ) {
+                    winner = symbol;
+                }
+
+            case 5:
+                if ((capturedBox.contains(4) && capturedBox.contains(6))
+                        || (capturedBox.contains(2) && capturedBox.contains(8))
+                        || (capturedBox.contains(1) && capturedBox.contains(9))
+                        || (capturedBox.contains(3) && capturedBox.contains(7))
+                ) {
+                    winner = symbol;
+                }
+
+            case 6:
+                if ((capturedBox.contains(5) && capturedBox.contains(4))
+                        || (capturedBox.contains(3) && capturedBox.contains(9))
+                ) {
+                    winner = symbol;
+                }
+
+            case 7:
+                if ((capturedBox.contains(8) && capturedBox.contains(9))
+                        || (capturedBox.contains(4) && capturedBox.contains(1))
+                        || (capturedBox.contains(5) && capturedBox.contains(3))
+                ) {
+                    winner = symbol;
+                }
+
+            case 8:
+                if ((capturedBox.contains(7) && capturedBox.contains(9))
+                        || (capturedBox.contains(5) && capturedBox.contains(2))
+                ) {
+                    winner = symbol;
+                }
+
+            case 9:
+                if ((capturedBox.contains(8) && capturedBox.contains(7))
+                        || (capturedBox.contains(6) && capturedBox.contains(3))
+                        || (capturedBox.contains(5) && capturedBox.contains(1))
+                ) {
+                    winner = symbol;
+                }
+
+        }
+    }
+
+    void displayFrame() {
 
     }
 
-    void displayFrame(){
-
-    }
-
-    void play(){
-        while (winner == '?'){
-            checkForWinner();
+    void play() {
+        while (winner == '?') {
             displayFrame();
+
             System.out.print("Which box do you wish to capture between 1 to 9.\n>:");
             Integer boxToCapture = sc.nextInt();
-            if(oCapturedBoxes.contains(boxToCapture) && xCapturedBoxes.contains(boxToCapture)){
-                System.out.println("Box "+boxToCapture+ " has already been captured.\nChoose a different box which is hasn't been claimed.");
+
+            if (boxToCapture < 1 || boxToCapture > 9) {
+                System.out.println("Error: Invalid Input.\nInput a number between 1 to 9.");
                 System.out.println("Press Enter to continue.");
                 sc.nextLine();
                 continue;
             }
 
-            if(symbol=='o'){
-                oCapturedBoxes.add(boxToCapture);
+            if (oCapturedBoxes.contains(boxToCapture) && xCapturedBoxes.contains(boxToCapture)) {
+                System.out.println("Box " + boxToCapture + " has already been captured.\nChoose a different box which is hasn't been claimed.");
+                System.out.println("Press Enter to continue.");
+                sc.nextLine();
+                continue;
             }
 
-            if(symbol=='x'){
+            if (symbol == 'o') {
+                oCapturedBoxes.add(boxToCapture);
+                checkForWinner(boxToCapture, oCapturedBoxes);
+            }
+
+            if (symbol == 'x') {
                 xCapturedBoxes.add(boxToCapture);
+                checkForWinner(boxToCapture, xCapturedBoxes);
             }
         }
 
         System.out.println("GAME OVER");
         System.out.println("---------");
         System.out.println("Winner: " + winner);
-        System.out.println("Press Enter to continue.");
+        System.out.println("Press Enter to exit.");
+        displayFrame();
         sc.nextLine();
     }
 
