@@ -209,11 +209,27 @@ public class TickTackToe {
         void setWinningBoxInFrameBuffer(int box, char symbolToPrint) {
             int[] boxPosition = getBoxPosition(box);
             String boxGraphics = "";
+            if (winningSteak.equals("vertical")) {
+                boxGraphics = "||" + symbolToPrint + "||";
+                if (boxPosition[1] != 2) {      // Last column
+                    int[] adjacentBoxPosition = getBoxPosition(box + 1);
+                    frameBuffer[adjacentBoxPosition[0]][adjacentBoxPosition[1]] = frameBuffer[adjacentBoxPosition[0]][adjacentBoxPosition[1]].substring(1);
+                }
+                frameBuffer[boxPosition[0]][boxPosition[1]] = boxGraphics;
+            }
             if (winningSteak.equals("rDiagonal")) {
+                if (box != 3) {
+                    int[] adjacentBoxPosition = getBoxPosition(box + 1);
+                    frameBuffer[adjacentBoxPosition[0]][adjacentBoxPosition[1]] = frameBuffer[adjacentBoxPosition[0]][adjacentBoxPosition[1]].substring(1);
+                }
                 boxGraphics = "/ " + symbolToPrint + " /";
                 frameBuffer[boxPosition[0]][boxPosition[1]] = boxGraphics;
             }
             if (winningSteak.equals("lDiagonal")) {
+                if (box != 9) {
+                    int[] adjacentBoxPosition = getBoxPosition(box + 1);
+                    frameBuffer[adjacentBoxPosition[0]][adjacentBoxPosition[1]] = frameBuffer[adjacentBoxPosition[0]][adjacentBoxPosition[1]].substring(1);
+                }
                 boxGraphics = "\\ " + symbolToPrint + " \\";
                 frameBuffer[boxPosition[0]][boxPosition[1]] = boxGraphics;
             }
@@ -238,16 +254,23 @@ public class TickTackToe {
             }
         }
 
+        void displayHorizontalLine(int row) {
+            if (winningSteak.equals("horizontal") && winningHand != null && (Arrays.asList(winningHand).contains((row + 1) * 3) || Arrays.asList(winningHand).contains((row) * 3))) {
+                System.out.println("=============");
+            } else {
+                System.out.println("-------------");
+            }
+        }
 
         void displayFrame() {
             for (int row = 0; row < 3; row++) {
-                System.out.println("-------------");
+                displayHorizontalLine(row);
                 for (int column = 0; column < 3; column++) {
                     System.out.print(frameBuffer[row][column]);
                 }
                 System.out.println();
             }
-            System.out.println("-------------");
+            displayHorizontalLine(2);
         }
     }
 
