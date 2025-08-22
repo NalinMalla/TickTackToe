@@ -1,16 +1,17 @@
 package Socket_Programming.TickTackToe;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class TickTackToe {
     Scanner sc;
     char symbol = '?';
     char winner = '?';
+    Integer[] winningHand;
+    String winningSteak = "";
     ArrayList<Integer> xCapturedBoxes;
     ArrayList<Integer> oCapturedBoxes;
-    int[] bboxSize = {300, 300};
-    int[][] frameBuffer;
 
     void setSymbol() {
         while (symbol == '?') {
@@ -40,86 +41,222 @@ public class TickTackToe {
     void checkForWinner(Integer boxToCapture, ArrayList<Integer> capturedBox) {
         switch (boxToCapture) {
             case 1:
-                if ((capturedBox.contains(2) && capturedBox.contains(3))
-                        || (capturedBox.contains(4) && capturedBox.contains(7))
-                        || (capturedBox.contains(5) && capturedBox.contains(9))
-                ) {
+                if (capturedBox.contains(2) && capturedBox.contains(3)) {
                     winner = symbol;
+                    winningHand = new Integer[]{1, 2, 3};
+                    winningSteak = "horizontal";
                 }
+                if (capturedBox.contains(4) && capturedBox.contains(7)) {
+                    winner = symbol;
+                    winningHand = new Integer[]{1, 4, 7};
+                    winningSteak = "vertical";
+                }
+                if (capturedBox.contains(5) && capturedBox.contains(9)) {
+                    winner = symbol;
+                    winningHand = new Integer[]{1, 5, 9};
+                    winningSteak = "lDiagonal";
+                }
+                break;
 
             case 2:
-                if ((capturedBox.contains(1) && capturedBox.contains(3))
-                        || (capturedBox.contains(5) && capturedBox.contains(8))
-                ) {
+                if (capturedBox.contains(1) && capturedBox.contains(3)) {
                     winner = symbol;
+                    winningHand = new Integer[]{1, 2, 3};
+                    winningSteak = "horizontal";
                 }
+                if (capturedBox.contains(5) && capturedBox.contains(8)) {
+                    winner = symbol;
+                    winningHand = new Integer[]{2, 5, 8};
+                    winningSteak = "vertical";
+                }
+                break;
 
             case 3:
-                if ((capturedBox.contains(2) && capturedBox.contains(1))
-                        || (capturedBox.contains(6) && capturedBox.contains(9))
-                        || (capturedBox.contains(5) && capturedBox.contains(7))
-                ) {
+                if (capturedBox.contains(2) && capturedBox.contains(1)) {
                     winner = symbol;
+                    winningHand = new Integer[]{1, 2, 3};
+                    winningSteak = "horizontal";
                 }
+                if (capturedBox.contains(6) && capturedBox.contains(9)) {
+                    winner = symbol;
+                    winningHand = new Integer[]{3, 6, 9};
+                    winningSteak = "vertical";
+                }
+                if (capturedBox.contains(5) && capturedBox.contains(7)) {
+                    winner = symbol;
+                    winningHand = new Integer[]{3, 5, 7};
+                    winningSteak = "rDiagonal";
+                }
+                break;
 
             case 4:
-                if ((capturedBox.contains(5) && capturedBox.contains(6))
-                        || (capturedBox.contains(1) && capturedBox.contains(7))
-                ) {
+                if (capturedBox.contains(5) && capturedBox.contains(6)) {
                     winner = symbol;
+                    winningHand = new Integer[]{4, 5, 6};
+                    winningSteak = "horizontal";
                 }
+                if (capturedBox.contains(1) && capturedBox.contains(7)) {
+                    winner = symbol;
+                    winningHand = new Integer[]{1, 4, 7};
+                    winningSteak = "vertical";
+                }
+                break;
 
             case 5:
-                if ((capturedBox.contains(4) && capturedBox.contains(6))
-                        || (capturedBox.contains(2) && capturedBox.contains(8))
-                        || (capturedBox.contains(1) && capturedBox.contains(9))
-                        || (capturedBox.contains(3) && capturedBox.contains(7))
-                ) {
+                if (capturedBox.contains(4) && capturedBox.contains(6)) {
                     winner = symbol;
+                    winningHand = new Integer[]{4, 5, 6};
+                    winningSteak = "horizontal";
                 }
+                if (capturedBox.contains(2) && capturedBox.contains(8)) {
+                    winner = symbol;
+                    winningHand = new Integer[]{2, 5, 8};
+                    winningSteak = "vertical";
+                }
+                if (capturedBox.contains(1) && capturedBox.contains(9)) {
+                    winner = symbol;
+                    winningHand = new Integer[]{1, 5, 9};
+                    winningSteak = "lDiagonal";
+                }
+                if (capturedBox.contains(3) && capturedBox.contains(7)) {
+                    winner = symbol;
+                    winningHand = new Integer[]{3, 5, 7};
+                    winningSteak = "rDiagonal";
+                }
+                break;
 
             case 6:
-                if ((capturedBox.contains(5) && capturedBox.contains(4))
-                        || (capturedBox.contains(3) && capturedBox.contains(9))
-                ) {
+                if (capturedBox.contains(5) && capturedBox.contains(4)) {
                     winner = symbol;
+                    winningHand = new Integer[]{4, 5, 6};
+                    winningSteak = "horizontal";
                 }
+                if (capturedBox.contains(3) && capturedBox.contains(9)) {
+                    winner = symbol;
+                    winningHand = new Integer[]{3, 6, 9};
+                    winningSteak = "vertical";
+                }
+                break;
 
             case 7:
-                if ((capturedBox.contains(8) && capturedBox.contains(9))
-                        || (capturedBox.contains(4) && capturedBox.contains(1))
-                        || (capturedBox.contains(5) && capturedBox.contains(3))
-                ) {
+                if (capturedBox.contains(8) && capturedBox.contains(9)) {
                     winner = symbol;
+                    winningHand = new Integer[]{7, 8, 9};
+                    winningSteak = "horizontal";
                 }
+                if (capturedBox.contains(4) && capturedBox.contains(1)) {
+                    winner = symbol;
+                    winningHand = new Integer[]{1, 4, 7};
+                    winningSteak = "vertical";
+                }
+                if (capturedBox.contains(5) && capturedBox.contains(3)) {
+                    winner = symbol;
+                    winningHand = new Integer[]{3, 5, 7};
+                    winningSteak = "rDiagonal";
+                }
+                break;
 
             case 8:
-                if ((capturedBox.contains(7) && capturedBox.contains(9))
-                        || (capturedBox.contains(5) && capturedBox.contains(2))
-                ) {
+                if (capturedBox.contains(7) && capturedBox.contains(9)) {
                     winner = symbol;
+                    winningHand = new Integer[]{7, 8, 9};
+                    winningSteak = "horizontal";
                 }
+                if (capturedBox.contains(5) && capturedBox.contains(2)) {
+                    winner = symbol;
+                    winningHand = new Integer[]{2, 5, 8};
+                    winningSteak = "vertical";
+                }
+                break;
 
             case 9:
-                if ((capturedBox.contains(8) && capturedBox.contains(7))
-                        || (capturedBox.contains(6) && capturedBox.contains(3))
-                        || (capturedBox.contains(5) && capturedBox.contains(1))
-                ) {
+                if (capturedBox.contains(8) && capturedBox.contains(7)) {
                     winner = symbol;
+                    winningHand = new Integer[]{7, 8, 9};
+                    winningSteak = "horizontal";
                 }
-
+                if (capturedBox.contains(6) && capturedBox.contains(3)) {
+                    winner = symbol;
+                    winningHand = new Integer[]{3, 6, 9};
+                    winningSteak = "vertical";
+                }
+                if (capturedBox.contains(5) && capturedBox.contains(1)) {
+                    winner = symbol;
+                    winningHand = new Integer[]{1, 5, 9};
+                    winningSteak = "lDiagonal";
+                }
+                break;
         }
     }
 
-    void displayFrame() {
+    class Display {
+        String[][] frameBuffer;
 
+        Display() {
+            frameBuffer = new String[][]{
+                    {"| ", "| ", "| |"},
+                    {"| ", "| ", "| |"},
+                    {"| ", "| ", "| |"},
+            };
+        }
+
+        int[] getBoxPosition(int box) {
+            int row = (box - 1) / 3;
+            int column = (box - 1) % 3;
+            return new int[]{row, column};
+        }
+
+        void setWinningBoxInFrameBuffer(int box, char symbolToPrint) {
+            int[] boxPosition = getBoxPosition(box);
+            String boxGraphics = "";
+            if (winningSteak.equals("rDiagonal")) {
+                boxGraphics = "/" + symbolToPrint + "/";
+                frameBuffer[boxPosition[0]][boxPosition[1]] = boxGraphics;
+            }
+            if (winningSteak.equals("lDiagonal")) {
+                boxGraphics = "\\" + symbolToPrint + "\\";
+                frameBuffer[boxPosition[0]][boxPosition[1]] = boxGraphics;
+            }
+        }
+
+        void setBoxInFrameBuffer(int box, char symbolToPrint) {
+            int[] boxPosition = getBoxPosition(box);
+            String boxGraphics = "";
+
+            if (winner == '?') {
+                boxGraphics = "|" + symbolToPrint;
+                if (boxPosition[1] == 2) {      // Last column
+                    boxGraphics = "|" + symbolToPrint + "|";
+                }
+                frameBuffer[boxPosition[0]][boxPosition[1]] = boxGraphics;
+            }
+
+            if (winner == symbolToPrint && winningHand != null && Arrays.asList(winningHand).contains(box)) {
+                for (int winningBox : winningHand) {
+                    setWinningBoxInFrameBuffer(winningBox, symbolToPrint);
+                }
+            }
+        }
+
+
+        void displayFrame() {
+            for (int row = 0; row < 3; row++) {
+                System.out.println();
+                for (int column = 0; column < 3; column++) {
+                    System.out.print(frameBuffer[row][column]);
+                }
+            }
+        }
     }
 
     void play() {
-        while (winner == '?') {
-            displayFrame();
+        Display display = new Display();
 
-            System.out.print("Which box do you wish to capture between 1 to 9.\n>:");
+        while (winner == '?') {
+            System.out.print("\033[H\033[2J");      // Clears output terminal
+            display.displayFrame();
+
+            System.out.print("\nWhich box do you wish to capture between 1 to 9.\n>:");
             Integer boxToCapture = sc.nextInt();
 
             if (boxToCapture < 1 || boxToCapture > 9) {
@@ -129,7 +266,7 @@ public class TickTackToe {
                 continue;
             }
 
-            if (oCapturedBoxes.contains(boxToCapture) && xCapturedBoxes.contains(boxToCapture)) {
+            if (oCapturedBoxes.contains(boxToCapture) || xCapturedBoxes.contains(boxToCapture)) {
                 System.out.println("Box " + boxToCapture + " has already been captured.\nChoose a different box which is hasn't been claimed.");
                 System.out.println("Press Enter to continue.");
                 sc.nextLine();
@@ -139,20 +276,21 @@ public class TickTackToe {
             if (symbol == 'o') {
                 oCapturedBoxes.add(boxToCapture);
                 checkForWinner(boxToCapture, oCapturedBoxes);
+                display.setBoxInFrameBuffer(boxToCapture, symbol);    // should be below checkForWinner()
             }
 
             if (symbol == 'x') {
                 xCapturedBoxes.add(boxToCapture);
                 checkForWinner(boxToCapture, xCapturedBoxes);
+                display.setBoxInFrameBuffer(boxToCapture, symbol);    // should be below checkForWinner()
             }
         }
 
+        System.out.print("\033[H\033[2J");      // Clears output terminal
         System.out.println("GAME OVER");
         System.out.println("---------");
         System.out.println("Winner: " + winner);
-        System.out.println("Press Enter to exit.");
-        displayFrame();
-        sc.nextLine();
+        display.displayFrame();
     }
 
     public static void main(String[] args) {
