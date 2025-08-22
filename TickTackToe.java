@@ -194,9 +194,9 @@ public class TickTackToe {
 
         Display() {
             frameBuffer = new String[][]{
-                    {"| ", "| ", "| |"},
-                    {"| ", "| ", "| |"},
-                    {"| ", "| ", "| |"},
+                    {"|   ", "|   ", "|   |"},
+                    {"|   ", "|   ", "|   |"},
+                    {"|   ", "|   ", "|   |"},
             };
         }
 
@@ -210,11 +210,11 @@ public class TickTackToe {
             int[] boxPosition = getBoxPosition(box);
             String boxGraphics = "";
             if (winningSteak.equals("rDiagonal")) {
-                boxGraphics = "/" + symbolToPrint + "/";
+                boxGraphics = "/ " + symbolToPrint + " /";
                 frameBuffer[boxPosition[0]][boxPosition[1]] = boxGraphics;
             }
             if (winningSteak.equals("lDiagonal")) {
-                boxGraphics = "\\" + symbolToPrint + "\\";
+                boxGraphics = "\\ " + symbolToPrint + " \\";
                 frameBuffer[boxPosition[0]][boxPosition[1]] = boxGraphics;
             }
         }
@@ -224,9 +224,9 @@ public class TickTackToe {
             String boxGraphics = "";
 
             if (winner == '?') {
-                boxGraphics = "|" + symbolToPrint;
+                boxGraphics = "| " + symbolToPrint + " ";
                 if (boxPosition[1] == 2) {      // Last column
-                    boxGraphics = "|" + symbolToPrint + "|";
+                    boxGraphics = "| " + symbolToPrint + " |";
                 }
                 frameBuffer[boxPosition[0]][boxPosition[1]] = boxGraphics;
             }
@@ -241,11 +241,13 @@ public class TickTackToe {
 
         void displayFrame() {
             for (int row = 0; row < 3; row++) {
-                System.out.println();
+                System.out.println("-------------");
                 for (int column = 0; column < 3; column++) {
                     System.out.print(frameBuffer[row][column]);
                 }
+                System.out.println();
             }
+            System.out.println("-------------");
         }
     }
 
