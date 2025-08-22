@@ -9,7 +9,7 @@ public class TickTackToe {
     char symbol = '?';
     char winner = '?';
     Integer[] winningHand;
-    String winningSteak = "";
+    String winningStreak = "";
     ArrayList<Integer> xCapturedBoxes;
     ArrayList<Integer> oCapturedBoxes;
 
@@ -44,17 +44,17 @@ public class TickTackToe {
                 if (capturedBox.contains(2) && capturedBox.contains(3)) {
                     winner = symbol;
                     winningHand = new Integer[]{1, 2, 3};
-                    winningSteak = "horizontal";
+                    winningStreak = "horizontal";
                 }
                 if (capturedBox.contains(4) && capturedBox.contains(7)) {
                     winner = symbol;
                     winningHand = new Integer[]{1, 4, 7};
-                    winningSteak = "vertical";
+                    winningStreak = "vertical";
                 }
                 if (capturedBox.contains(5) && capturedBox.contains(9)) {
                     winner = symbol;
                     winningHand = new Integer[]{1, 5, 9};
-                    winningSteak = "lDiagonal";
+                    winningStreak = "lDiagonal";
                 }
                 break;
 
@@ -62,12 +62,12 @@ public class TickTackToe {
                 if (capturedBox.contains(1) && capturedBox.contains(3)) {
                     winner = symbol;
                     winningHand = new Integer[]{1, 2, 3};
-                    winningSteak = "horizontal";
+                    winningStreak = "horizontal";
                 }
                 if (capturedBox.contains(5) && capturedBox.contains(8)) {
                     winner = symbol;
                     winningHand = new Integer[]{2, 5, 8};
-                    winningSteak = "vertical";
+                    winningStreak = "vertical";
                 }
                 break;
 
@@ -75,17 +75,17 @@ public class TickTackToe {
                 if (capturedBox.contains(2) && capturedBox.contains(1)) {
                     winner = symbol;
                     winningHand = new Integer[]{1, 2, 3};
-                    winningSteak = "horizontal";
+                    winningStreak = "horizontal";
                 }
                 if (capturedBox.contains(6) && capturedBox.contains(9)) {
                     winner = symbol;
                     winningHand = new Integer[]{3, 6, 9};
-                    winningSteak = "vertical";
+                    winningStreak = "vertical";
                 }
                 if (capturedBox.contains(5) && capturedBox.contains(7)) {
                     winner = symbol;
                     winningHand = new Integer[]{3, 5, 7};
-                    winningSteak = "rDiagonal";
+                    winningStreak = "rDiagonal";
                 }
                 break;
 
@@ -93,12 +93,12 @@ public class TickTackToe {
                 if (capturedBox.contains(5) && capturedBox.contains(6)) {
                     winner = symbol;
                     winningHand = new Integer[]{4, 5, 6};
-                    winningSteak = "horizontal";
+                    winningStreak = "horizontal";
                 }
                 if (capturedBox.contains(1) && capturedBox.contains(7)) {
                     winner = symbol;
                     winningHand = new Integer[]{1, 4, 7};
-                    winningSteak = "vertical";
+                    winningStreak = "vertical";
                 }
                 break;
 
@@ -106,22 +106,22 @@ public class TickTackToe {
                 if (capturedBox.contains(4) && capturedBox.contains(6)) {
                     winner = symbol;
                     winningHand = new Integer[]{4, 5, 6};
-                    winningSteak = "horizontal";
+                    winningStreak = "horizontal";
                 }
                 if (capturedBox.contains(2) && capturedBox.contains(8)) {
                     winner = symbol;
                     winningHand = new Integer[]{2, 5, 8};
-                    winningSteak = "vertical";
+                    winningStreak = "vertical";
                 }
                 if (capturedBox.contains(1) && capturedBox.contains(9)) {
                     winner = symbol;
                     winningHand = new Integer[]{1, 5, 9};
-                    winningSteak = "lDiagonal";
+                    winningStreak = "lDiagonal";
                 }
                 if (capturedBox.contains(3) && capturedBox.contains(7)) {
                     winner = symbol;
                     winningHand = new Integer[]{3, 5, 7};
-                    winningSteak = "rDiagonal";
+                    winningStreak = "rDiagonal";
                 }
                 break;
 
@@ -129,12 +129,12 @@ public class TickTackToe {
                 if (capturedBox.contains(5) && capturedBox.contains(4)) {
                     winner = symbol;
                     winningHand = new Integer[]{4, 5, 6};
-                    winningSteak = "horizontal";
+                    winningStreak = "horizontal";
                 }
                 if (capturedBox.contains(3) && capturedBox.contains(9)) {
                     winner = symbol;
                     winningHand = new Integer[]{3, 6, 9};
-                    winningSteak = "vertical";
+                    winningStreak = "vertical";
                 }
                 break;
 
@@ -142,17 +142,17 @@ public class TickTackToe {
                 if (capturedBox.contains(8) && capturedBox.contains(9)) {
                     winner = symbol;
                     winningHand = new Integer[]{7, 8, 9};
-                    winningSteak = "horizontal";
+                    winningStreak = "horizontal";
                 }
                 if (capturedBox.contains(4) && capturedBox.contains(1)) {
                     winner = symbol;
                     winningHand = new Integer[]{1, 4, 7};
-                    winningSteak = "vertical";
+                    winningStreak = "vertical";
                 }
                 if (capturedBox.contains(5) && capturedBox.contains(3)) {
                     winner = symbol;
                     winningHand = new Integer[]{3, 5, 7};
-                    winningSteak = "rDiagonal";
+                    winningStreak = "rDiagonal";
                 }
                 break;
 
@@ -160,12 +160,12 @@ public class TickTackToe {
                 if (capturedBox.contains(7) && capturedBox.contains(9)) {
                     winner = symbol;
                     winningHand = new Integer[]{7, 8, 9};
-                    winningSteak = "horizontal";
+                    winningStreak = "horizontal";
                 }
                 if (capturedBox.contains(5) && capturedBox.contains(2)) {
                     winner = symbol;
                     winningHand = new Integer[]{2, 5, 8};
-                    winningSteak = "vertical";
+                    winningStreak = "vertical";
                 }
                 break;
 
@@ -173,17 +173,17 @@ public class TickTackToe {
                 if (capturedBox.contains(8) && capturedBox.contains(7)) {
                     winner = symbol;
                     winningHand = new Integer[]{7, 8, 9};
-                    winningSteak = "horizontal";
+                    winningStreak = "horizontal";
                 }
                 if (capturedBox.contains(6) && capturedBox.contains(3)) {
                     winner = symbol;
                     winningHand = new Integer[]{3, 6, 9};
-                    winningSteak = "vertical";
+                    winningStreak = "vertical";
                 }
                 if (capturedBox.contains(5) && capturedBox.contains(1)) {
                     winner = symbol;
                     winningHand = new Integer[]{1, 5, 9};
-                    winningSteak = "lDiagonal";
+                    winningStreak = "lDiagonal";
                 }
                 break;
         }
@@ -209,7 +209,8 @@ public class TickTackToe {
         void setWinningBoxInFrameBuffer(int box, char symbolToPrint) {
             int[] boxPosition = getBoxPosition(box);
             String boxGraphics = "";
-            if (winningSteak.equals("vertical")) {
+
+            if (winningStreak.equals("vertical")) {
                 boxGraphics = "||" + symbolToPrint + "||";
                 if (boxPosition[1] != 2) {      // Last column
                     int[] adjacentBoxPosition = getBoxPosition(box + 1);
@@ -217,7 +218,7 @@ public class TickTackToe {
                 }
                 frameBuffer[boxPosition[0]][boxPosition[1]] = boxGraphics;
             }
-            if (winningSteak.equals("rDiagonal")) {
+            if (winningStreak.equals("rDiagonal")) {
                 if (box != 3) {
                     int[] adjacentBoxPosition = getBoxPosition(box + 1);
                     frameBuffer[adjacentBoxPosition[0]][adjacentBoxPosition[1]] = frameBuffer[adjacentBoxPosition[0]][adjacentBoxPosition[1]].substring(1);
@@ -225,7 +226,7 @@ public class TickTackToe {
                 boxGraphics = "/ " + symbolToPrint + " /";
                 frameBuffer[boxPosition[0]][boxPosition[1]] = boxGraphics;
             }
-            if (winningSteak.equals("lDiagonal")) {
+            if (winningStreak.equals("lDiagonal")) {
                 if (box != 9) {
                     int[] adjacentBoxPosition = getBoxPosition(box + 1);
                     frameBuffer[adjacentBoxPosition[0]][adjacentBoxPosition[1]] = frameBuffer[adjacentBoxPosition[0]][adjacentBoxPosition[1]].substring(1);
@@ -239,7 +240,7 @@ public class TickTackToe {
             int[] boxPosition = getBoxPosition(box);
             String boxGraphics = "";
 
-            if (winner == '?') {
+            if (winner == '?' || winningStreak.equals("horizontal")) {
                 boxGraphics = "| " + symbolToPrint + " ";
                 if (boxPosition[1] == 2) {      // Last column
                     boxGraphics = "| " + symbolToPrint + " |";
@@ -254,23 +255,33 @@ public class TickTackToe {
             }
         }
 
-        void displayHorizontalLine(int row) {
-            if (winningSteak.equals("horizontal") && winningHand != null && (Arrays.asList(winningHand).contains((row + 1) * 3) || Arrays.asList(winningHand).contains((row) * 3))) {
-                System.out.println("=============");
-            } else {
-                System.out.println("-------------");
+        void displayHorizontalLine(int row, int lineType) {
+            if (lineType == 1) {
+                if (winningStreak.equals("horizontal") && winningHand != null && (Arrays.asList(winningHand).contains((row + 1) * 3) || Arrays.asList(winningHand).contains((row) * 3))) {
+                    System.out.println("=============");
+                } else {
+                    System.out.println("-------------");
+                }
+            }
+
+            if (lineType == 2) {
+                if (winningStreak.equals("horizontal") && winningHand != null && Arrays.asList(winningHand).contains((row + 1) * 3)) {
+                    System.out.println("=============");
+                } else {
+                    System.out.println("-------------");
+                }
             }
         }
 
         void displayFrame() {
             for (int row = 0; row < 3; row++) {
-                displayHorizontalLine(row);
+                displayHorizontalLine(row, 1);
                 for (int column = 0; column < 3; column++) {
                     System.out.print(frameBuffer[row][column]);
                 }
                 System.out.println();
             }
-            displayHorizontalLine(2);
+            displayHorizontalLine(2, 2);
         }
     }
 
